@@ -551,7 +551,7 @@
                     "input_message_content": { "message_text": text } 
                 };
             Telegram.WebApp.answerWebAppQuery(query_id, result)
-            Telegram.WebApp.
+            Telegram.WebApp.close();
         },
         // Alerts
         showAlert(message) {
