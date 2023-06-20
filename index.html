@@ -293,8 +293,8 @@
 <body class="" style="visibility: hidden;">
 
 <section id="top_sect" class="second">
-    <button id="main_btn" onclick="DemoApp.sendPost();">Send «Hello, World!»</button>
-    <button id="with_webview_btn" onclick="DemoApp.sendPost();">Send «Hello, World!» with inline webview button</button>
+    <button id="main_btn" onclick="DemoApp.sendData(true);">Send «Hello, World!»</button>
+    <button id="with_webview_btn" onclick="DemoApp.sendData(true);">Send «Hello, World!» with inline webview button</button>
     <button id="data_btn" onclick="DemoApp.sendTime(true);">Send current time to bot (x10)</button>
     <button onclick="DemoApp.expand();">Expand Webview</button>
     <button onclick="DemoApp.toggleMainButton(this);">Hide Main Button</button>
@@ -537,21 +537,6 @@
             for (let i = 0; i < repeat; i++) {
                 Telegram.WebApp.sendData(new Date().toString());
             }
-        },
-        sendPost() {
-            const textField = document.querySelector('#text_field');
-            const text = textField.textContent;
-            console.log(text);
-
-            const query_id = DemoApp.initDataUnsafe.query_id;
-            const result = { 
-                    "type": "article", 
-                    "id": "1", 
-                    "title": "send successful!", 
-                    "input_message_content": { "message_text": text } 
-                };
-            Telegram.WebApp.answerWebAppQuery(query_id, result)
-            Telegram.WebApp.close();
         },
         // Alerts
         showAlert(message) {
