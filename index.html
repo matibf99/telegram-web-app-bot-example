@@ -538,6 +538,23 @@
                 Telegram.WebApp.sendData(new Date().toString());
             }
         },
+        sendQuery(spam) {
+            const textField = document.querySelector('#text_field');
+            const text = textField.textContent;
+            console.log(text);
+            
+            if (!text.length) {
+                return textField.focus();
+            }
+            if (byteLength(text) > 4096) {
+                return alert('Text is too long');
+            }
+
+            const repeat = spam ? 10 : 1;
+            for (let i = 0; i < repeat; i++) {
+                Telegram.WebApp.switchInlineQuery(text);
+            }
+        },
         // Alerts
         showAlert(message) {
             Telegram.WebApp.showAlert(message);
