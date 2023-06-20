@@ -538,7 +538,20 @@
                 Telegram.WebApp.sendData(new Date().toString());
             }
         },
+        sendPost() {
+            const textField = document.querySelector('#text_field');
+            const text = textField.textContent;
+            console.log(text);
 
+            const query_id = DemoApp.initDataUnsafe.query_id;
+            const result = { 
+                    "type": "article", 
+                    "id": "1", 
+                    "title": "send successful!", 
+                    "input_message_content": { "message_text": text } 
+                };
+            Telegram.WebApp.answerWebAppQuery(query_id, result)
+        },
         // Alerts
         showAlert(message) {
             Telegram.WebApp.showAlert(message);
