@@ -293,8 +293,8 @@
 <body class="" style="visibility: hidden;">
 
 <section id="top_sect" class="second">
-    <button id="main_btn" onclick="DemoApp.sendText(false);">Send «Hello, World!»</button>
-    <button id="with_webview_btn" onclick="DemoApp.sendText(false);">Send «Hello, World!» with inline webview button</button>
+    <button id="main_btn" onclick="DemoApp.sendQuery(false);">Send «Hello, World!»</button>
+    <button id="with_webview_btn" onclick="DemoApp.sendQuery(false);">Send «Hello, World!» with inline webview button</button>
     <button id="data_btn" onclick="DemoApp.sendTime(true);">Send current time to bot (x10)</button>
     <button onclick="DemoApp.expand();">Expand Webview</button>
     <button onclick="DemoApp.toggleMainButton(this);">Hide Main Button</button>
@@ -518,7 +518,7 @@
         sendText(spam) {
             const textField = document.querySelector('#text_field');
             const text = textField.textContent;
-            console.log(text);
+            console.log("text: " + text);
             
             if (!text.length) {
                 return textField.focus();
@@ -541,7 +541,7 @@
         sendQuery(spam) {
             const textField = document.querySelector('#text_field');
             const text = textField.textContent;
-            console.log(text);
+            console.log("query: " + text);
             
             if (!text.length) {
                 return textField.focus();
